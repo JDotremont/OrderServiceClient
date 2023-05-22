@@ -1,0 +1,85 @@
+@import "primeicons/primeicons.css";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    >header {
+        height: 70px;
+        border-bottom: 1px solid black;
+        background-color: red;
+    }
+
+    >div {
+        display: flex;
+        flex-grow: 1;
+        background-color: white;
+        height: 100%;
+        >nav {
+            width: 300px;
+            border-right: 1px solid black;
+
+            >ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                >li {
+                    border-bottom: 1px solid black;
+                    &:hover {
+                        background-color: darkorange;
+                    }
+                    &.active {
+                        background-color: orangered;
+                    }
+                    >a {
+                    height: 50px;
+                    padding-left: 20px;
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bold;
+                    }
+
+                    >ol {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        >li {
+                            border-bottom: 1px solid black;
+                            &:hover {
+                                background-color: white;
+                            }
+                            &.active {
+                                background-color: orangered;
+                            }
+                            >a {
+                            height: 50px;
+                            padding-left: 40px;
+                            display: flex;
+                            align-items: center;
+                            text-decoration: none;
+                            color: black;
+                            font-weight: bold;
+                            font-weight: normal;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        >main {
+            padding: 20px;
+            flex-grow: 1;
+            color: black;
+        }
+    }
+
+    >footer {
+        height: 50px;
+        border-top: 1px solid black;
+        background-color: red;
+    }
+}

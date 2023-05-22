@@ -1,0 +1,36 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="input-group">
+      <label for="customerId">Customer ID</label>
+      <input type="number" id="customerId" formControlName="customerId">
+      <!-- <div *ngIf="form.get('customerId') && form.get('customerId')">
+        <small>Customer ID is required</small>
+      </div> -->
+    </div>
+  
+    <div formArrayName="orderLine" class="input-group">
+      <div *ngFor="let orderLine of form.get('orderLine')?.value; let i = index" [formGroupName]="i">
+        <div class="input-group">
+          <label for="productId">Product ID</label>
+          <input type="number" id="productId" formControlName="productId">
+          <!-- <div *ngIf="orderLine.get('productId').invalid && orderLine.get('productId').touched">
+            <small>Product ID is required</small>
+          </div> -->
+        </div>
+  
+        <div class="input-group">
+          <label for="qty">Quantity</label>
+          <input type="number" id="qty" formControlName="qty">
+          <!-- <div *ngIf="orderLine.get('qty').invalid && orderLine.get('qty').touched">
+            <small>Quantity is required</small>
+          </div> -->
+        </div>
+  
+        <button type="button" (click)="removeOrderLine(i)">Remove</button>
+      </div>
+    </div>
+  
+    <button type="button" (click)="addOrderLine()">Add Order Line</button>
+  
+    <button type="submit">Create Order</button>
+  </form>
+  

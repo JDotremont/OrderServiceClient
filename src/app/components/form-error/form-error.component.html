@@ -1,0 +1,3 @@
+<div *ngIf="(control?.touched || control?.dirty) && control?.errors !== null">
+    <div *ngIf="control?.getError('required')">Ce champs est requis</div>
+</div>
