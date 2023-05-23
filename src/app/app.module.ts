@@ -25,6 +25,10 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { CreateCustomerComponent } from './pages/create-customer/create-customer.component';
 import { CreateOrderComponent } from './pages/create-order/create-order.component';
+import { ProductEditComponent } from './pages/product-edit/product-edit.component';
+import { CustomerEditComponent } from './pages/customer-edit/customer-edit.component';
+import { UserEditComponent } from './pages/user-edit/user-edit.component';
+import { OrderEditComponent } from './pages/order-edit/order-edit.component';
 
 
 @NgModule({
@@ -39,7 +43,11 @@ import { CreateOrderComponent } from './pages/create-order/create-order.componen
     LoginComponent,
     UserCreateComponent,
     CreateCustomerComponent,
-    CreateOrderComponent
+    CreateOrderComponent,
+    ProductEditComponent,
+    CustomerEditComponent,
+    UserEditComponent,
+    OrderEditComponent
   ],
   imports: [
     BrowserModule,

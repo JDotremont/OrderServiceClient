@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Edit Customer</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="input-group">
+        <label for="firstname">First Name</label>
+        <input pInputText placeholder="First Name" formControlName="firstname" [value]="form.get('firstname')?.value" required>
+        <app-form-error [control]="form.get('firstname')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="lastname">Last Name</label>
+        <input pInputText placeholder="Last Name" formControlName="lastname" [value]="form.get('lastname')?.value" required>
+        <app-form-error [control]="form.get('lastname')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input pInputText placeholder="Email" formControlName="email" [value]="form.get('email')?.value" required>
+        <app-form-error [control]="form.get('email')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="street">Street</label>
+        <input pInputText placeholder="Street" formControlName="street" [value]="form.get('street')?.value" required>
+        <app-form-error [control]="form.get('street')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="number">Number</label>
+        <input pInputText placeholder="Number" formControlName="number" [value]="form.get('number')?.value" required>
+        <app-form-error [control]="form.get('number')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="zipcode">Zip Code</label>
+        <input pInputText placeholder="Zip Code" formControlName="zipcode" [value]="form.get('zipcode')?.value" required>
+        <app-form-error [control]="form.get('zipcode')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="city">City</label>
+        <input pInputText placeholder="City" formControlName="city" [value]="form.get('city')?.value" required>
+        <app-form-error [control]="form.get('city')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="country">Country</label>
+        <input pInputText placeholder="Country" formControlName="country" [value]="form.get('country')?.value" required>
+        <app-form-error [control]="form.get('country')"></app-form-error>
+      </div>
+      <div class="button">
+        <p-button type="submit">Update Customer</p-button>
+      </div>
+    </form>
+  </div>
+  

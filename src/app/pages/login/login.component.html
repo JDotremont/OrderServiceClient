@@ -8,4 +8,4 @@
     <button type="submit">Login</button>
 </form>
 
-<button (click)="logout()">Logout</button>
+<button (click)="logout()" *ngIf="isLogged">Logout</button>

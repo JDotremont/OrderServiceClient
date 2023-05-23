@@ -5,13 +5,14 @@ import { environment } from 'src/environments/environment.development';
 import { UserService } from './user.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from '../models/user.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
 
-  private isConnected: boolean = false;
+  isConnected$: BehaviorSubject < boolean > = new BehaviorSubject<boolean>(false);
   private connectedUser: User | null = null;
 
   constructor(
@@ -19,7 +20,7 @@ export class AuthServiceService {
     private http: HttpClient,
   ) {
     if(localStorage.getItem('token')) {
-      this.isConnected = true;
+      this.isConnected$.next(true);
     }
   }
 
@@ -31,7 +32,10 @@ hasRole(role: string): boolean {
 login(user: any) {
   return this.http.post<any>(environment.apiUrl + '/login', user)
     .pipe(map((res) => {
+      console.log(res.token);
+      
       if(res.token) {
+        this.isConnected$.next(true);
         this.connectedUser = this.jwtHelper.decodeToken(res.token) as User;
         localStorage.setItem('token', res.token);
         localStorage.setItem('user', JSON.stringify(this.connectedUser));
@@ -45,7 +49,7 @@ login(user: any) {
 
 
 logout() {
-  this.isConnected = false;
+  this.isConnected$.next(false);
   localStorage.removeItem('token');
   localStorage.removeItem('user');
   this.connectedUser = null;
@@ -53,7 +57,7 @@ logout() {
 
 
   get isLogged() {
-    return this.isConnected;
+    return this.isConnected$.value;
   }
 
 }

@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Edit Order</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="input-group">
+            <label for="customerName">Customer Name</label>
+            <input pInputText placeholder="Customer Name" formControlName="customerName" required [value]="form.get('customerName')?.value">
+            <app-form-error [control]="form.get('customerName')"></app-form-error>
+          </div>                            
+      <div class="input-group">
+        <label for="date">Date</label>
+        <input pInputText placeholder="Date" formControlName="date" required>
+        <app-form-error [control]="form.get('date')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="status">Status</label>
+        <p-dropdown [options]="statusOptions" formControlName="status"></p-dropdown>
+        <app-form-error [control]="form.get('status')"></app-form-error>
+      </div>
+      
+      <div formArrayName="orderLines">
+        <div *ngFor="let orderLine of orderLinesControls; let i = index" [formGroupName]="i">
+          <div class="input-group">
+            <label for="productId">Product ID</label>
+            <input pInputText placeholder="Product ID" formControlName="productId" required>
+            <app-form-error [control]="orderLine.get('productId')"></app-form-error>
+          </div>
+          <div class="input-group">
+            <label for="productName">Product Name</label>
+            <input pInputText placeholder="Product Name" formControlName="productName" required>
+            <app-form-error [control]="orderLine.get('productName')"></app-form-error>
+          </div>
+          <div class="input-group">
+            <label for="qty">Quantity</label>
+            <input pInputText placeholder="Quantity" formControlName="qty" required>
+            <app-form-error [control]="orderLine.get('qty')"></app-form-error>
+          </div>
+          <div class="button">
+            <p-button type="button" label="Remove" (click)="removeOrderLine(i)"></p-button>
+          </div>
+        </div>
+      </div>
+      <div class="button">
+        <p-button type="button" label="Add Order Line" (click)="addOrderLine()"></p-button>
+      </div>
+      <div class="button">
+        <p-button type="submit">Update Order</p-button>
+      </div>
+    </form>
+  </div>

@@ -9,17 +9,25 @@ import { LoginComponent } from './pages/login/login.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { CreateCustomerComponent } from './pages/create-customer/create-customer.component';
 import { CreateOrderComponent } from './pages/create-order/create-order.component';
+import { ProductEditComponent } from './pages/product-edit/product-edit.component';
+import { CustomerEditComponent } from './pages/customer-edit/customer-edit.component';
+import { UserEditComponent } from './pages/user-edit/user-edit.component';
+import { OrderEditComponent } from './pages/order-edit/order-edit.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/products', pathMatch: 'full'},
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'products', component: ProductsComponent},
   { path: 'products/create', component: ProductCreateComponent},
+  { path: 'products/:id/edit', component: ProductEditComponent },
   { path: 'customers', component: CustomersComponent},
   { path: 'customers/create', component: CreateCustomerComponent},
+  { path: 'customers/:id/edit', component: CustomerEditComponent},
   { path: 'users', component: UsersComponent},
   { path: 'users/create', component: UserCreateComponent},
+  { path: 'users/:id/edit', component: UserEditComponent},
   { path: 'orders', component: OrdersComponent},
   { path: 'orders/create', component: CreateOrderComponent},
+  { path: 'orders/:id/edit', component: OrderEditComponent},
   { path: 'login', component: LoginComponent}
 ];
 

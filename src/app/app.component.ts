@@ -25,5 +25,17 @@ export class AppComponent {
   hasRole(role: string): boolean {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     return user.role === role;
-}
+  }
+
+  get isLogged$() {
+    return this.authService.isConnected$;
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  get isLogged() {
+    return this.authService.isLogged;
+  }
 }

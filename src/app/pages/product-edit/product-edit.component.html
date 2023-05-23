@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Edit Product</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="input-group">
+        <label for="name">Name</label>
+        <input pInputText placeholder="Name" formControlName="name" [value]="form.get('name')?.value">
+      </div>
+      <div class="input-group">
+        <label for="qty">Quantity</label>
+        <input pInputText placeholder="Quantity" formControlName="qty" [value]="form.get('qty')?.value">
+      </div>
+      <div class="input-group">
+        <label for="description">Description</label>
+        <input pInputText placeholder="Description" formControlName="description" [value]="form.get('description')?.value">
+      </div>
+      <div class="input-group">
+        <label for="price">Price</label>
+        <input pInputText placeholder="Price" formControlName="price" [value]="form.get('price')?.value">
+      </div>
+      <div class="input-group">
+        <label for="alert">Alert</label>
+        <input pInputText placeholder="Alert" formControlName="alert" [value]="form.get('alert')?.value">
+      </div>
+      <div class="input-group">
+        <label for="image">Image</label>
+        <input type="file" placeholder="Image" formControlName="image">
+      </div>
+      <div class="button">
+        <p-button type="submit">Update Product</p-button>
+      </div>
+    </form>
+  </div>
+  

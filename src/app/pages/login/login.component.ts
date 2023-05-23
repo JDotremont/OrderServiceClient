@@ -31,7 +31,7 @@ export class LoginComponent {
       this.authService.login(this.entityForm.value).subscribe(
         (res: any) => {
           console.log(res);
-          this.router.navigate(['/']);
+          this.router.navigate(['/products']);
         },
         (error) => {
           console.log(error);

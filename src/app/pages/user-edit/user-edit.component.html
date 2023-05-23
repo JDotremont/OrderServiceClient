@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Edit User</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input pInputText placeholder="Username" formControlName="username" [value]="form.get('username')?.value" required>
+        <app-form-error [control]="form.get('username')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input pInputText placeholder="Email" formControlName="email" [value]="form.get('email')?.value" required>
+        <app-form-error [control]="form.get('email')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="role">Role</label>
+        <input pInputText placeholder="Role" formControlName="role" [value]="form.get('role')?.value" required>
+        <app-form-error [control]="form.get('role')"></app-form-error>
+      </div>
+      <div class="input-group">
+        <label for="image">Image</label>
+        <input type="file" placeholder="Image">
+      </div>
+      <div class="button">
+        <p-button type="submit">Update User</p-button>
+      </div>
+    </form>
+  </div>
+  

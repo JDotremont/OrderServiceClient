@@ -25,7 +25,7 @@
             <td>{{c.zipcode}}</td>
             <td>{{c.country}}</td>
             <td><span class="p-buttonset">
-                <button pButton pRipple label="Edit" icon="pi pi-file-edit"></button>
+                <button pButton pRipple label="Edit" icon="pi pi-file-edit" [routerLink]="['/customers', c.id, 'edit']"></button>
                 <button pButton pRipple label="Delete" icon="pi pi-trash"></button>
             </span>
             </td>

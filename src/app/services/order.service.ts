@@ -20,4 +20,16 @@ export class OrderService {
   add(order: any){
     return this.httpClient.post<any>( environment.apiUrl + '/orders', order);
   }
+
+  getOrder(id: number): Observable<any> {
+    return this.httpClient.get<any>( environment.apiUrl + '/orders/' + id);
+  }
+
+  updateOrder(id: number, order: any): Observable<any> {
+    return this.httpClient.put<any>( environment.apiUrl + '/orders/' + id, order);
+  }
+
+  deleteOrder(id: number): Observable<any> {
+    return this.httpClient.delete<any>( environment.apiUrl + '/orders/' + id);
+  }
 }

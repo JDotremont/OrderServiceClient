@@ -13,7 +13,6 @@ export class ProductsService {
   ) { }
 
   getAll(): Observable<any[]> {
-    // get products from API
     return this.httpClient.get<any[]>( environment.apiUrl + '/products');
   }
 
@@ -23,5 +22,13 @@ export class ProductsService {
 
   delete(id: number){
     return this.httpClient.delete<any>( environment.apiUrl + '/products/' + id);
+  }
+
+  getProduct(id: number): Observable<any> {
+    return this.httpClient.get<any>( environment.apiUrl + '/products/' + id);
+  }
+
+  update(id: number, product: any){
+    return this.httpClient.put<any>( environment.apiUrl + '/products/' + id, product);
   }
 }

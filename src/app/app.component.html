@@ -3,7 +3,7 @@
 </header>
 
 <div>
-    <nav>
+    <nav *ngIf="isLogged$|async">
         <ul>
             <li>
                 <a routerLinkActive="active" routerLink="/login">Login</a>
